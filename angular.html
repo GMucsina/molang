@@ -23,14 +23,14 @@
   <body>
 
     <nav ng-controller="menuController" class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-      <a class="navbar-brand" href="#">{{ brand }}</a>
+      <a class="navbar-brand" href="#" ng-bind="brand"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarCollapse">
         <ul class="navbar-nav mr-auto">
-          <li ng-repeat="link in menuItems" class="nav-item active">
-            <a class="nav-link" ng-href="{{ link.href }}">{{ $index }}: {{ link.name }}</a>
+          <li ng-repeat="link in menuItems" class="nav-item" ng-class="{'active': $index == 1}">
+            <a class="nav-link" ng-href="{{ link.href }}" ng-bind="link.name"></a>
           </li>
         </ul>
         <form class="form-inline mt-2 mt-md-0">
@@ -40,14 +40,19 @@
       </div>
     </nav>
 
-    <div class="container">
-      <div class="jumbotron">
-        <h1>{{ pageTitle }}</h1>
-        <p class="lead">This example is a quick exercise to illustrate how the top-aligned navbar works. As you scroll, this navbar remains in its original position and moves with the rest of the page.</p>
-        <a class="btn btn-lg btn-primary" href="../../components/navbar/" role="button">View navbar docs &raquo;</a>
-        <input ng-model="pageTitle" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <input ng-model="pageTitle" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-        <input ng-model="pageTitle" class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+    <div ng-controller="tableController" class="container">
+      <div class="row justify-content-center">
+        <div class="col-sm-10">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th ng-repeat="th in tableHeaders" ng-bind="th"></th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
     </div>
 

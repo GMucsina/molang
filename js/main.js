@@ -18,3 +18,10 @@ piVision.controller("menuController", ["$scope", function($scope) {
         }
     ]
 }]);
+
+// Table kezelése
+piVision.controller("tableController", ["$scope", function($scope) {
+
+    // Headers
+    $scope.tableHeaders = ["Tralala", "Lalala", "Lelele"]
+}]);
